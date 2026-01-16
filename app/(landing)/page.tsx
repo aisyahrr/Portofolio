@@ -46,7 +46,7 @@ function SkillBubble({ icon, title }: { icon: string; title: string }) {
     <div
       title={title}
       className="relative h-14 w-14 rounded-full
-      shadow-[inset_0_4px_10px_rgba(255,255,255,0.6),0_2px_10px_(--glow-primary)]
+      shadow-[inset_0_4px_10px_rgba(255,255,255,0.6),0_2px_10px_var(--glow-primary)]
       backdrop-blur-md md:shadow-[inset_0_4px_10px_rgba(255,255,255,0.6),0_4px_20px_var(--glow-primary)]
       hover:scale-110 transition animate-bounce-slow "
     >
@@ -60,7 +60,7 @@ function SkillBubble({ icon, title }: { icon: string; title: string }) {
 
 
 export default function HomePage(){
-  const [certificates] = useState<TCertificate[]>([]);
+  // const [certificates] = useState<TCertificate[]>([]);
   const [order, setOrder] = useState<TCertificate[]>([]);
   const [data, setData] = useState<TProject[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
@@ -94,7 +94,7 @@ export default function HomePage(){
     }
 
     fetchData();
-  }, [certificates]);
+  }, []);
 
 
   const years = new Date().getFullYear() - 2024;
@@ -385,7 +385,7 @@ export default function HomePage(){
                     }}
                     initial={{ scale: 0.9, y: index * 8, rotate: index * -2 }}
                     animate={{ scale: 1, y: index * 8, rotate: index * -2 }}
-                    whileTap={{ scale: 0.40 }}
+                    whileTap={{ scale: 0.97 }}
                     transition={{ type: "spring", stiffness: 200, damping: 18 }}
                   >
                     <Image
