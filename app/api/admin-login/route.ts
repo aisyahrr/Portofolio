@@ -11,6 +11,8 @@ export async function POST(req: Request) {
         res.cookies.set("admin", "true", {
         httpOnly: true,
         path: "/",
+        sameSite: "lax",
+        secure: true,
         });
         return res;
     }

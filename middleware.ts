@@ -2,32 +2,29 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  try {
+    const pathname = request.nextUrl.pathname;
+    const cookie = request.cookies.get("admin");
+    const isAdmin = cookie?.value === "true";
 
-  if (
-    pathname === "/" ||
-    pathname.startsWith("/about") ||
-    pathname.startsWith("/projects") ||
-    pathname.startsWith("/contact") ||
-    pathname.startsWith("/playlist") ||
-    pathname.startsWith("/achievements")
-  ) {
+    if (pathname.startsWith("/dashboard") && !isAdmin) {
+      return NextResponse.redirect(
+        new URL("/admin-login", request.url)
+      );
+    }
+
+    if (pathname === "/admin-login" && isAdmin) {
+      return NextResponse.redirect(
+        new URL("/dashboard", request.url)
+      );
+    }
+
+    return NextResponse.next();
+  } catch (error) {
     return NextResponse.next();
   }
-
-  const isAdmin = request.cookies.get("admin")?.value === "true";
-
-  if (pathname.startsWith("/dashboard") && !isAdmin) {
-    return NextResponse.redirect(new URL("/admin-login", request.url));
-  }
-
-  if (pathname === "/admin-login" && isAdmin) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
-  }
-
-  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/:path*"],
+  matcher: ["/dashboard/:path*", "/admin-login"],
 };
