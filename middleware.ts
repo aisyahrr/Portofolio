@@ -20,6 +20,7 @@ export function middleware(request: NextRequest) {
     }
 
     return NextResponse.next();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return NextResponse.next();
   }
