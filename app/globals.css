@@ -1,26 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap');
+
 @import "tailwindcss";
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
+@import 'swiper/css/autoplay';
+
+
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* === BACKGROUND === */
+  --color-background: #ffffff;          
+  --color-secondary: #f9fafb;             
+
+  /* === PRIMARY (NAVY PREMIUM) === */
+  --color-bluePrimary: #0a1b4d;       
+  --color-blueSecond: #1f3c88;          
+
+  /* === TEXT === */
+  --color-text: #1f2937;              
+  --color-text-secondary: #6b7280;       
+  --color-heading: #111827;               
+
+  /* === UI SURFACE === */
+  --color-sidebar: #0052eb;               
+  --color-hover: rgba(6, 58, 168, 0.05);  
+  --color-bg-hover: #f3f4f6;             
+
+  /* === BORDER === */
+  --color-border: rgba(17, 24, 39, 0.10);
+  --color-border-card: #155dfc;
+
+  /* === SHADOW / GLOW === */
+  --glow-primary: rgba(31, 60, 136, 0.18); 
+  --glow-inner: rgba(255, 255, 255, 0.75);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+
+.dark {
+  /* === BACKGROUND === */
+  --color-background: #0f1115;          
+  --color-secondary: #151821;          
+
+  /* === PRIMARY COLOR === */
+  --color-bluePrimary: #8ab4f8;
+  --color-blueSecond: #6d8cc0;
+
+  /* === TEXT === */
+  --color-text: #e5e7eb;
+  --color-text-secondary: #9ca3af;
+  --color-heading: #c7d2fe;
+
+  /* === UI SURFACE === */
+  --color-sidebar: #0c0f14;
+  --color-hover: rgba(255, 255, 255, 0.04);
+  --color-bg-hover: #1b2030;
+
+  --color-border-card: #155dfc; 
+  --color-border: rgba(255, 255, 255, 0.2); 
+  --glow-primary: rgba(21, 93, 252, 0.4); 
+  --glow-inner: rgba(255, 255, 255, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
+/* BODY */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background 0.3s ease, color 0.3s ease;
 }
+
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+}
+p,span {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 400;
+}
+.animate-bounce-slow {
+  animation: bounce-slow 5s ease-in-out infinite;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease forwards;
+}
+
+.animate-slideOut {
+  animation: slideOut 0.3s ease forwards;
+}
+/* Hide scrollbar but keep scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
+body.sidebar-open {
+  overflow: hidden;
+}
+
+body.sidebar-open main {
+  overflow: hidden !important;
+  pointer-events: none;
+}
+
+
