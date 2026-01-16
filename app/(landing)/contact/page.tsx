@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 interface ContactCardProps {
@@ -18,12 +17,12 @@ function ContactCard({ icon, title, value, href }: ContactCardProps) {
             rel="noopener noreferrer"
             className="
             rounded-2xl
-            border border-[var(--color-border-card)]
-            bg-[var(--color-secondary)]
-            text-[var(--color-text)]
+            border border-(--color-border-card)
+            bg-(--color-secondary)
+            text-(--color-text)
             backdrop-blur-md
             p-5 text-left
-            hover:bg-[var(--color-hover)]
+            hover:bg-(--color-hover)
             hover:shadow-[0_0_0_1px_var(--color-border-card),0_8px_30px_var(--glow-primary)]
             hover:scale-[1.02]
             transition-all duration-300
@@ -40,8 +39,6 @@ function ContactCard({ icon, title, value, href }: ContactCardProps) {
 }
 
 export default function ContactPage() {
-    const [loading, setLoading] = useState(false);
-
     return (
         <section className="space-y-6 text-(--color-text)">
             {/* Header */}
@@ -85,25 +82,25 @@ export default function ContactPage() {
             </div>
 
             {/* CONTACT FORM */}
-            <div className="w-full md:w-1/2 rounded-2xl border border-[var(--color-border-card)] p-6 backdrop-blur-md">
+            <div className="w-full md:w-1/2 rounded-2xl border border-(--color-border-card) p-6 backdrop-blur-md">
                 <form className="space-y-4">
                 <input
                     type="text"
                     placeholder="Name"
                     required
-                    className="w-full rounded-lg border border-(--color-border) px-4 py-2 focus:ring-2 focus:ring-[var(--color-border-card)]"
+                    className="w-full rounded-lg border border-(--color-border) px-4 py-2 focus:ring-2 focus:ring-(--color-border-card)"
                 />
                 <input
                     type="email"
                     placeholder="Email"
                     required
-                    className="w-full rounded-lg border border-(--color-border) px-4 py-2 focus:ring-2 focus:ring-[var(--color-border-card)]"
+                    className="w-full rounded-lg border border-(--color-border) px-4 py-2 focus:ring-2 focus:ring-(--color-border-card)"
                 />
                 <textarea
                     placeholder="Message"
                     rows={4}
                     required
-                    className="w-full rounded-lg border border-(--color-border) px-4 py-2 focus:ring-2 focus:ring-[var(--color-border-card)]"
+                    className="w-full rounded-lg border border-(--color-border) px-4 py-2 focus:ring-2 focus:ring-(--color-border-card)"
                 />
                 <button
                     className="w-full px-6 py-2 rounded-lg  border-none 

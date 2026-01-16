@@ -361,7 +361,7 @@ export default function EducationPage() {
                           </span>
                           </td>
 
-                          <td className="px-6 py-4 max-w-[300px]">
+                          <td className="px-6 py-4 max-w-75">
                           <p
                               title={edu.description}
                               className="text-white/80 line-clamp-2 cursor-help"

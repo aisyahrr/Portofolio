@@ -131,10 +131,10 @@ export default function Sidebar() {
                 onClick={() => router.push("/playlist")}
                     className="
                     w-full flex items-center gap-2 px-4 py-2 rounded-xl
-                    bg-[var(--color-hover)]
-                    border border-[var(--color-border-card)]
-                    text-[var(--color-heading)]
-                    hover:bg-[var(--color-bg-hover)]
+                    bg-(--color-hover)
+                    border border-(--color-border-card)
+                    text-(--color-heading)
+                    hover:bg-(--color-bg-hover)
                     hover:shadow-[0_6px_20px_var(--glow-primary)]
                     font-medium transition
                     "
@@ -211,10 +211,10 @@ export default function Sidebar() {
                             onClick={() => router.push("/playlist")}
                             className="
                             w-full flex items-center gap-2 px-4 py-2 rounded-xl
-                            bg-[var(--color-hover)]
-                            border border-[var(--color-border-card)]
-                            text-[var(--color-heading)]
-                            hover:bg-[var(--color-bg-hover)]
+                            bg-(--color-hover)
+                            border border-(--color-border-card)
+                            text-(--color-heading)
+                            hover:bg-(--color-bg-hover)
                             hover:shadow-[0_6px_20px_var(--glow-primary)]
                             font-medium transition
                             "

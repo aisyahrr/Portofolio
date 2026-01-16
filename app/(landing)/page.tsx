@@ -31,7 +31,7 @@ interface Contact{
   url: string;
   icon: React.ReactElement;
 }
-export const contacts: Contact[] = [
+const contacts: Contact[] = [
   {url: "https://www.instagram.com/aisyh.rr/",icon: <FaInstagram size={20} />,},
   {url: "https://github.com/aisyahrr",icon: <FaGithub size={20} />,},
   {url: "https://www.linkedin.com/in/aisyhrr/",icon: <FaLinkedin size={20} />,},
@@ -46,8 +46,8 @@ function SkillBubble({ icon, title }: { icon: string; title: string }) {
     <div
       title={title}
       className="relative h-14 w-14 rounded-full
-      shadow-[inset_0_4px_10px_rgba(255,255,255,0.6),_0_2px_10px_var(--glow-primary)]
-      backdrop-blur-md md:shadow-[inset_0_4px_10px_rgba(255,255,255,0.6),_0_4px_20px_var(--glow-primary)]
+      shadow-[inset_0_4px_10px_rgba(255,255,255,0.6),0_2px_10px_(--glow-primary)]
+      backdrop-blur-md md:shadow-[inset_0_4px_10px_rgba(255,255,255,0.6),0_4px_20px_var(--glow-primary)]
       hover:scale-110 transition animate-bounce-slow "
     >
       <div className="absolute top-1 left-2 h-4 w-4 bg-white/50 rounded-full blur-[2px]" />
@@ -60,7 +60,7 @@ function SkillBubble({ icon, title }: { icon: string; title: string }) {
 
 
 export default function HomePage(){
-  const [certificates, setCertificates] = useState<TCertificate[]>([]);
+  const [certificates] = useState<TCertificate[]>([]);
   const [order, setOrder] = useState<TCertificate[]>([]);
   const [data, setData] = useState<TProject[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
@@ -323,7 +323,7 @@ export default function HomePage(){
               >
                 {data.map((item) => (
                 <SwiperSlide key={item.id}>
-                  <div className="group relative w-full h-[130px] rounded-xl overflow-hidden border-2 border-(--color-border-card) bg-[#C7B7A3] shadow-[inset_0_3px_10px_rgba(0,0,0,0.3)]">
+                  <div className="group relative w-full h-32.5 rounded-xl overflow-hidden border-2 border-(--color-border-card) bg-[#C7B7A3] shadow-[inset_0_3px_10px_rgba(0,0,0,0.3)]">
                     <Image
                       src={`/Project/${item.image}`}
                       alt={item.project}
@@ -373,7 +373,7 @@ export default function HomePage(){
                   Certifications and milestones that reflect my growth.
                 </p>
             </div>
-            <div className="relative w-[250px] h-[250px] flex items-center justify-center">
+            <div className="relative w-62.5 h-62.5 flex items-center justify-center">
               {order
                 .map((cert, index) => (
                   <motion.div
@@ -412,12 +412,13 @@ export default function HomePage(){
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          onClick={() => router.push("/contact")}
           className="bg-(--color-background) 
           backdrop-blur-md rounded-2xl 
           shadow-[inset_0_4px_6px_rgba(0,0,0,0.3)] 
           p-6 text-center flex flex-col items-center ">
-              <div className="inline-block p-2 bg-[#3E5879]/30 backdrop-blur-md rounded-lg">
+              <div
+            onClick={() => router.push("/contact")}
+              className="inline-block p-2 bg-[#3E5879]/30 backdrop-blur-md rounded-lg">
                 <HiOutlineMail className="w-5 h-5 text-white" />
               </div>
               <h3 className="text-base font-semibold mt-2">Contact</h3>
@@ -433,7 +434,7 @@ export default function HomePage(){
                       rel="noopener noreferrer"
                       className="group relative h-14 w-14 rounded-full
                         bg-white
-                        dark:bg-slate-800
+                        dark:bg-slate-600
                         border border-slate-200/70 dark:border-slate-700
                         shadow-[0_4px_12px_rgba(15,23,42,0.08)]
                         dark:shadow-[0_6px_20px_rgba(0,0,0,0.4)]

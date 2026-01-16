@@ -70,7 +70,7 @@ export default function AboutPage() {
                     {data.map((edu) =>{
                         const Icon = educationIcons[edu.icon];
                         return (
-                        <div key={edu.id} className="space-y-3 mt-4 backdrop-blur-md border border-(--color-border-card) hover:shadow-[inset_0_4px_10px_var(--glow-inner),_0_4px_25px_var(--glow-primary)] p-5 rounded-lg hover:-translate-y-1 hover:cursor-pointer transition">
+                        <div key={edu.id} className="space-y-3 mt-4 backdrop-blur-md border border-(--color-border-card) hover:shadow-[inset_0_4px_10px_var(--glow-inner),0_4px_25px_var(--glow-primary)] p-5 rounded-lg hover:-translate-y-1 hover:cursor-pointer transition">
                             <div className="flex items-center gap-3">
                                 <div className="inline-block p-3 rounded-xl bg-black/10">
                                     {Icon && <Icon className="text-blue-500 text-xl" />}

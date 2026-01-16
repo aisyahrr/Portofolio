@@ -27,7 +27,7 @@ export default function PlaylistPage() {
                         rounded-3xl
                         p-6
                         backdrop-blur-2xl
-                        bg-gradient-to-t
+                        bg-linear-to-t
                         from-[#005c97]
                         to-[#363795]
                         shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)]
@@ -35,7 +35,7 @@ export default function PlaylistPage() {
                     >
                     <div className="flex items-center gap-3 md:gap-8 ">                    
                         {/* ALBUM COVER */}
-                        <div className="relative w-[120px] h-[120px] md:w-[200px] md:h-[200px] rounded-3xl overflow-hidden shrink-0">
+                        <div className="relative w-30 h-30 md:w-50 md:h-50 rounded-3xl overflow-hidden shrink-0">
                             <Image
                             src={`/Playlist/${current.image}`}
                             alt="Juicy Luicy"

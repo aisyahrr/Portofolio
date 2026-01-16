@@ -77,7 +77,7 @@ export default function PlayerControls({
       audio.removeEventListener("loadedmetadata", onLoaded);
       audio.removeEventListener("ended", onEnded);
     };
-  }, [currentIndex]);
+  }, [currentIndex, nextSong, playing]);
 
   const seek = (value: number) => {
     if (!audioRef.current) return;
@@ -104,13 +104,13 @@ export default function PlayerControls({
           }}
         >
           <div
-            className="absolute left-0 top-0 h-1 rounded-full bg-[var(--color-bluePrimary)]"
+            className="absolute left-0 top-0 h-1 rounded-full bg-(--color-bluePrimary)"
             style={{ width: `${progress}%` }}
           />
           <div
             className="absolute top-1/2 -translate-y-1/2
               w-3 h-3 rounded-full
-              bg-[var(--color-bluePrimary)]
+              bg-(--color-bluePrimary)
               shadow-[0_0_20px_var(--glow-primary)]"
             style={{ left: `calc(${progress}% - 6px)` }}
           />
@@ -129,7 +129,7 @@ export default function PlayerControls({
           onClick={togglePlay}
           className="p-2 rounded-full shadow-[0_0_25px_var(--glow-primary)]"
         >
-          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--color-bluePrimary)]">
+          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-(--color-bluePrimary)">
             {playing ? (
               <IoPause size={22} className="text-white" />
             ) : (

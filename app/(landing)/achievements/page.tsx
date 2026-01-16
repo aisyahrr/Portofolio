@@ -50,7 +50,7 @@ export default function Certificates() {
                 "
             >
              {/* Image */}
-            <div className="relative h-[180px] bg-(--color-bg-hover)">
+            <div className="relative h-45 bg-(--color-bg-hover)">
                 <Image
                     src={`/Sertifikat/${item.image}`}
                     alt={item.title}
