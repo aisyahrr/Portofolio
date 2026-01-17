@@ -59,12 +59,8 @@ export default function ProjectsPage() {
         {visibleProjects.map((item) => (
           <div
             key={item.id}
-            onClick={() => {
-                if (window.innerWidth < 768) {
-                setActiveId(activeId === item.id ? null : item.id);
-                }
-            }}
-            className="
+
+            className={`
               group relative w-full
               border border-white/10
               rounded-xl p-2 shadow-lg
@@ -77,69 +73,74 @@ export default function ProjectsPage() {
                 0_0_8px_var(--glow-primary),
                 0_0_0_1px_var(--color-border-card)
               ]
-            "
+            ${activeId === item.id ? 'border-(--color-border-card)' : ''}`}
           >
-            {/* Image */}
-            <div className="relative w-full md:h-62.5 h-50 rounded-xl overflow-hidden bg-[#C7B7A3]">
-              <Image
-                src={`/Project/${item.image}`}
-                alt={item.project}
-                width={600}
-                height={400}
-                loading="eager"
-                className="object-cover h-full w-full "
-              />
+          {/* Image */}
+          <div className="relative w-full md:h-62.5 h-50 rounded-xl overflow-hidden bg-[#C7B7A3]">
+            <Image
+              src={`/Project/${item.image}`}
+              alt={item.project}
+              width={600}
+              height={400}
+              loading="eager"
+              className="object-cover h-full w-full"
+            />
 
-              {/* Role + Year Badge */}
-              <div className="
-                absolute left-0 top-0
-                flex items-center gap-2
-                px-3 py-1
-                rounded-tl-xl rounded-br-xl
-                bg-white/70
-                text-black
-                text-sm font-extrabold
-                shadow-lg
+            {/* Role + Year Badge */}
+            <div className="
+              absolute left-0 top-0
+              flex items-center gap-2
+              px-3 py-1
+              rounded-tl-xl rounded-br-xl
+              bg-white/70
+              text-black text-sm font-extrabold
+              shadow-lg
+            ">
+              <span>{item.role}</span>
+              <span className="
+                h-4 px-2 flex items-center justify-center
+                text-[10px] bg-black/40 text-white/90
+                rounded-full translate-y-px
               ">
-                <span>{item.role}</span>
+                {item.year}
+              </span>
+            </div>
 
-                <span
-                  className="
-                    h-4 px-2
-                    flex items-center justify-center
-                    text-[10px]
-                    bg-black/40
-                    text-white/90
-                    rounded-full
-                    translate-y-px
-                  "
-                >
-                  {item.year}
-                </span>
-              </div>
-              {/* Hover View */}
+            {/* Overlay */}
+            <div
+              onClick={() => {
+                if (window.innerWidth < 768) {
+                  setActiveId(activeId === item.id ? null : item.id);
+                }
+              }}
+              className={`
+                absolute inset-0 z-10
+                bg-black/50 backdrop-blur-sm
+                rounded-xl
+                transition-all duration-300
+
+                opacity-0 pointer-events-none
+                group-hover:opacity-100
+                group-hover:pointer-events-auto
+
+                ${activeId === item.id ? 'opacity-100 pointer-events-auto' : ''}
+              `}
+            >
               <a
                 href={item.view}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className={`
-                  absolute inset-0 z-10
-                  flex items-center justify-center
-                  bg-black/50 backdrop-blur-sm
-                  opacity-0 pointer-events-none rounded-xl
-                  transition-all duration-300
-                  group-hover:opacity-100
-                  group-hover:pointer-events-auto
-                  ${activeId === item.id ? 'opacity-100 pointer-events-auto' : ''}
-                `}
+                className="
+                  flex h-full w-full
+                  items-center justify-center
+                  text-white font-semibold text-lg
+                "
               >
-                <span className="flex items-center gap-2 text-white font-semibold text-lg">
-                  View Project <FiArrowUpRight />
-                </span>
+                View Project <FiArrowUpRight />
               </a>
             </div>
-
+          </div>
             {/* GitHub Button */}
             {item.github && item.github !== "-" && (
               <a
