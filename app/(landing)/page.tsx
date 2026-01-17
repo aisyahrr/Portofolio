@@ -150,14 +150,14 @@ export default function Page(){
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div className="inline-block p-4 rounded-xl bg-(--color-secondary) backdrop-blur-lg space-y-2">
-                <p className="text-3xl font-extrabold text-black">
+                <p className="text-3xl font-extrabold text-(--color-text)">
                   {stats && <CountUp value={Number(stats?.totalRepos ?? 0)} />}+
                 </p>
                 <p className="text-sm text-gray-500">Total Repositories</p>
               </div>
 
               <div className="inline-block p-4 rounded-xl bg-(--color-secondary) backdrop-blur-lg space-y-2">
-                <p className="text-3xl font-extrabold text-black">
+                <p className="text-3xl font-extrabold text-(--color-text)">
                   {stats && <CountUp value={Number(stats?.totalContributions ?? 0)} />}
                 </p>
                 <p className="text-sm text-gray-500">
@@ -166,7 +166,7 @@ export default function Page(){
               </div>
 
               <div className="inline-block p-4 rounded-xl bg-(--color-secondary) backdrop-blur-lg space-y-2">
-                <p className="text-3xl font-extrabold text-black">
+                <p className="text-3xl font-extrabold text-(--color-text)">
                   <CountUp value={years} />+
                 </p>
                 <p className="text-sm text-gray-500">Years Active</p>

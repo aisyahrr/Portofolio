@@ -7,6 +7,7 @@ export const metadata = {
   appleWebApp: {
     title: "Aisyah Rahmawati",
   },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
