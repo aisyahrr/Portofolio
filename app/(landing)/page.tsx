@@ -47,6 +47,7 @@ const contacts = [
     icon: <FaLinkedin size={20} />,
     color: "text-sky-500",
     glow: "shadow-[0_0_18px_rgba(56,189,248,0.55)]",
+    hoverColor: "group-hover:text-blue-500",
   },
 ];
 
