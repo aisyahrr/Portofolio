@@ -14,7 +14,6 @@ import type { TProject } from "@/libs/project";
 const INITIAL_VISIBLE = 10;
 
 export default function ProjectsPage() {
-  const [activeId, setActiveId] = useState<string | null>(null);
   const [data, setData] = useState<TProject[]>([]);
   const [showAll, setShowAll] = useState(false);
 
@@ -195,7 +194,7 @@ export default function ProjectsPage() {
                 className="
                   md:hidden
                   inline-flex items-center gap-2 text-(--color-text)/80 
-                  font-semibold text-base
+                  font-semibold text-sm
                 "
               >
                 View Project <FiArrowUpRight />

@@ -27,15 +27,29 @@ import { TCertificate } from "@/libs/achievements";
 import { getProject } from "@/libs/project";
 import type { TProject } from "@/libs/project";
 
-interface Contact{
-  url: string;
-  icon: React.ReactElement;
-}
-const contacts: Contact[] = [
-  {url: "https://www.instagram.com/aisyh.rr/",icon: <FaInstagram size={20} />,},
-  {url: "https://github.com/aisyahrr",icon: <FaGithub size={20} />,},
-  {url: "https://www.linkedin.com/in/aisyhrr/",icon: <FaLinkedin size={20} />,},
-]
+const contacts = [
+  {
+    url: "https://www.instagram.com/aisyh.rr/",
+    icon: <FaInstagram size={20} />,
+    color: "text-pink-500",
+    glow: "shadow-[0_0_18px_rgba(236,72,153,0.55)]",
+    hoverColor: "group-hover:text-pink-500",
+  },
+  {
+    url: "https://github.com/aisyahrr",
+    icon: <FaGithub size={20} />,
+    color: "text-neutral-400",
+    glow: "shadow-[0_0_18px_var(--glow-ball)]",
+    hoverColor: "group-hover:text-black ",
+  },
+  {
+    url: "https://www.linkedin.com/in/aisyhrr/",
+    icon: <FaLinkedin size={20} />,
+    color: "text-sky-500",
+    glow: "shadow-[0_0_18px_rgba(56,189,248,0.55)]",
+  },
+];
+
 
 interface Stats {
   totalRepos: number;
@@ -428,30 +442,32 @@ export default function Page(){
               <div className="flex gap-4 mt-8">
                 {contacts.map((contact, index) => (
                   <a
-                      key={index}
-                      href={contact.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group relative h-14 w-14 rounded-full
-                        bg-white
-                        dark:bg-slate-600
-                        border border-slate-200/70 dark:border-slate-700
-                        shadow-[0_4px_12px_rgba(15,23,42,0.08)]
-                        dark:shadow-[0_6px_20px_rgba(0,0,0,0.4)]
-                        transition-all duration-300
-                        hover:-translate-y-0.5
-                        hover:shadow-[0_8px_24px_rgba(79,70,229,0.18)]
-                        dark:hover:shadow-[0_8px_28px_rgba(99,102,241,0.35)]"
-                    >
+                    key={index}
+                    href={contact.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`
+                      group relative h-14 w-14 rounded-full
+                      ${contact.glow}
+                      backdrop-blur-md
+                      hover:scale-110
+                      active:scale-95
+                      transition-all
+                      animate-bounce-slow
+                      ${contact.color}
+                    `}
+                  >
                     {/* Glass highlight */}
-                    <span className="pointer-events-none absolute top-1 left-2 h-4 w-4 rounded-full bg-white/60 blur-[2px]" />
+                    <span className="absolute top-1 left-2 h-4 w-4 bg-white/50 rounded-full blur-[2px]" />
 
                     {/* Icon */}
                     <span
-                      className="flex h-full w-full items-center justify-center
-                        text-slate-700 dark:text-slate-200
-                        group-hover:text-indigo-500 dark:group-hover:text-indigo-400
-                        transition-colors"
+                      className={`
+                        flex h-full w-full items-center justify-center
+                        text-(--color-text)
+                        transition-colors duration-300
+                        ${contact.hoverColor}
+                      `}
                     >
                       {contact.icon}
                     </span>
