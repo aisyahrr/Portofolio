@@ -59,7 +59,7 @@ function SkillBubble({ icon, title }: { icon: string; title: string }) {
 }
 
 
-export default function HomePage(){
+export default function Page(){
   // const [certificates] = useState<TCertificate[]>([]);
   const [order, setOrder] = useState<TCertificate[]>([]);
   const [data, setData] = useState<TProject[]>([]);
