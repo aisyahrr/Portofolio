@@ -373,7 +373,7 @@ export default function Page(){
                   Certifications and milestones that reflect my growth.
                 </p>
             </div>
-            <div className="relative w-62.5 h-62.5 flex items-center justify-center">
+            <div className="relative w-62.5 md:h-62.5 h-40 mb-6 md:mb-0 flex items-center justify-center">
               {order
                 .map((cert, index) => (
                   <motion.div
