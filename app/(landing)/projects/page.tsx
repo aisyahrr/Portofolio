@@ -14,6 +14,7 @@ import type { TProject } from "@/libs/project";
 const INITIAL_VISIBLE = 10;
 
 export default function ProjectsPage() {
+  const [activeId, setActiveId] = useState<string | null>(null);
   const [data, setData] = useState<TProject[]>([]);
   const [showAll, setShowAll] = useState(false);
 
@@ -58,6 +59,11 @@ export default function ProjectsPage() {
         {visibleProjects.map((item) => (
           <div
             key={item.id}
+            onClick={() => {
+                if (window.innerWidth < 768) {
+                setActiveId(activeId === item.id ? null : item.id);
+                }
+            }}
             className="
               group relative w-full
               border border-white/10
@@ -74,7 +80,7 @@ export default function ProjectsPage() {
             "
           >
             {/* Image */}
-            <div className="relative w-full md:h-[250px] h-[200px] rounded-xl overflow-hidden bg-[#C7B7A3]">
+            <div className="relative w-full md:h-62.5 h-50 rounded-xl overflow-hidden bg-[#C7B7A3]">
               <Image
                 src={`/Project/${item.image}`}
                 alt={item.project}
@@ -105,7 +111,7 @@ export default function ProjectsPage() {
                     bg-black/40
                     text-white/90
                     rounded-full
-                    translate-y-[1px]
+                    translate-y-px
                   "
                 >
                   {item.year}
@@ -116,7 +122,7 @@ export default function ProjectsPage() {
                 href={item.view}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="
+                className={`
                   absolute inset-0 z-10
                   flex items-center justify-center
                   bg-black/50 backdrop-blur-sm
@@ -124,7 +130,8 @@ export default function ProjectsPage() {
                   transition-all duration-300
                   group-hover:opacity-100
                   group-hover:pointer-events-auto
-                "
+                  ${activeId === item.id ? 'opacity-100 pointer-events-auto' : ''}
+                `}
               >
                 <span className="flex items-center gap-2 text-white font-semibold text-lg">
                   View Project <FiArrowUpRight />
@@ -138,6 +145,7 @@ export default function ProjectsPage() {
                 href={item.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="
                   absolute right-3 top-3
                   h-10 w-10

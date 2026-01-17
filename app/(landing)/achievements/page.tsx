@@ -9,6 +9,7 @@ import type { TCertificate } from "@/libs/achievements";
 
 const INITIAL_VISIBLE = 12;
 export default function Certificates() {
+    const [activeId, setActiveId] = useState<string | null>(null);
     const [data, setData] = useState<TCertificate[]>([]);
     const [showAll, setShowAll] = useState(false);
     const visibleProjects = showAll ? data : data.slice(0, INITIAL_VISIBLE);
@@ -35,6 +36,11 @@ export default function Certificates() {
             {visibleProjects.map((item) => (
             <div
                 key={item.id}
+                onClick={() => {
+                    if (window.innerWidth < 768) {
+                    setActiveId(activeId === item.id ? null : item.id);
+                    }
+                }}
                 className="
                 group relative
                 rounded-2xl overflow-hidden
@@ -72,14 +78,16 @@ export default function Certificates() {
                     href={item.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="
+                    onClick={(e) => e.stopPropagation()}
+                    className={`
                     absolute inset-0
                     flex items-center justify-center
                     bg-black/40 backdrop-blur-sm
                     opacity-0 rounded-t-2xl
                     transition-all duration-300
                     group-hover:opacity-100
-                    "
+                        ${activeId === item.id ? 'opacity-100 pointer-events-auto' : ''}
+                    `}
                 >
                     <span className="flex items-center gap-2 text-white font-semibold">
                     View Certificate <FiArrowUpRight />
