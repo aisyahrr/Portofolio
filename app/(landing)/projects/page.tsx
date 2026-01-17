@@ -122,6 +122,7 @@ export default function ProjectsPage() {
                 href={item.view}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className={`
                   absolute inset-0 z-10
                   flex items-center justify-center
