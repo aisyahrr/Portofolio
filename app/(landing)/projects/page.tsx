@@ -193,9 +193,9 @@ export default function ProjectsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  mt-2 md:hidden
-                  inline-flex items-center gap-2 text-(--color-text) 
-                  font-semibold
+                  md:hidden
+                  inline-flex items-center gap-2 text-(--color-text)/80 
+                  font-semibold text-base
                 "
               >
                 View Project <FiArrowUpRight />
