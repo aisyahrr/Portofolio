@@ -59,11 +59,6 @@ export default function ProjectsPage() {
         {visibleProjects.map((item) => (
           <div
             key={item.id}
-            onClick={() => {
-              if (window.innerWidth < 768) {
-                setActiveId(activeId === item.id ? null : item.id);
-              }
-            }}
             className="
               group relative w-full
               border border-white/10
@@ -117,28 +112,31 @@ export default function ProjectsPage() {
                   {item.year}
                 </span>
               </div>
-              {/* Hover View */}
-              <a
-                href={item.view}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className={`
-                  absolute inset-0 z-10
-                  flex items-center justify-center
+              {/* Overlay */}
+              <div
+                className="
+                  absolute inset-0
+                  hidden md:flex
+                  items-center justify-center
                   bg-black/50 backdrop-blur-sm
-                  opacity-0 pointer-events-none rounded-xl
+                  opacity-0
                   transition-all duration-300
-                  md:group-hover:opacity-100
-                  md:group-hover:pointer-events-auto
-
-                  ${activeId === item.id ? 'opacity-100 pointer-events-auto' : ''}
-                `}
+                  group-hover:opacity-100
+                "
               >
-                <span className="flex items-center gap-2 text-white font-semibold text-lg">
+                <a
+                  href={item.view}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                  text-white font-semibold
+                    flex items-center gap-2
+                    hover:scale-105 transition
+                  "
+                >
                   View Project <FiArrowUpRight />
-                </span>
-              </a>
+                </a>
+              </div>
             </div>
 
             {/* GitHub Button */}
@@ -190,6 +188,18 @@ export default function ProjectsPage() {
                   </span>
                 ))}
               </div>
+              <a
+                href={item.view}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  mt-2 md:hidden
+                  inline-flex items-center gap-2 text-(--color-text) 
+                  font-semibold
+                "
+              >
+                View Project <FiArrowUpRight />
+              </a>
             </div>
           </div>
         ))}
