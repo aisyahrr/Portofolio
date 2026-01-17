@@ -1,6 +1,6 @@
 import "./globals.css";
 import Providers from "./providers";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata = {
   title: "Aisyah Rahmawati | Frontend Engineer",
   description: "Portfolio website built with Next.js",
@@ -20,6 +20,7 @@ export default function RootLayout({
       <body className="font-inter bg-(--background)">
         {children}
         <Providers />
+        <SpeedInsights />
       </body>
     </html>
   );
