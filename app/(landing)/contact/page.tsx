@@ -76,8 +76,8 @@ export default function ContactPage() {
                 <ContactCard
                 icon={<FaInstagram size={20} />}
                 title="Instagram"
-                value="@aisyh.rr"
-                href="https://www.instagram.com/aisyh.rr/"
+                value="@imaisyhrr"
+                href="https://www.instagram.com/imaisyhrr/"
                 />
             </div>
 

@@ -21,7 +21,7 @@ import { User, FolderKanban, Award } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import {HiOutlineMail} from "react-icons/hi";
 // data
-import {techStack, tools, platforms  } from "@/data/data"; 
+import {techStack, tools, platforms, softSkills, SoftSkill,toolsAi  } from "@/data/data"; 
 import { getCertificates } from "@/libs/achievements";
 import { TCertificate } from "@/libs/achievements";
 import { getProject } from "@/libs/project";
@@ -29,7 +29,7 @@ import type { TProject } from "@/libs/project";
 
 const contacts = [
   {
-    url: "https://www.instagram.com/aisyh.rr/",
+    url: "https://www.instagram.com/imaisyhrr/",
     icon: <FaInstagram size={20} />,
     color: "text-pink-500",
     glow: "shadow-[0_0_18px_rgba(236,72,153,0.55)]",
@@ -40,7 +40,7 @@ const contacts = [
     icon: <FaGithub size={20} />,
     color: "text-neutral-400",
     glow: "shadow-[0_0_18px_var(--glow-ball)]",
-    hoverColor: "group-hover:text-black ",
+    hoverColor: "group-hover:text-yellow-500 ",
   },
   {
     url: "https://www.linkedin.com/in/aisyhrr/",
@@ -205,7 +205,33 @@ export default function Page(){
         <p className="text-base text-(--color-heading) mb-6">
           My Professional Skill.
         </p>
-
+        {/* soft skill */}
+        <div className="mb-6">
+          <h3 className="text-sm font-semibold mb-3 text-(--color-heading)">
+            SoftSkill
+          </h3>
+          <div className="flex flex-wrap gap-3">
+            {softSkills.map((item: SoftSkill) => (
+              <span
+                key={item.title}
+                className="
+                  relative inline-flex items-center justify-center
+                  px-4 py-2 mx-2 text-sm font-semibold capitalize
+                  rounded-xl
+                  backdrop-blur-md
+                  shadow-[inset_0_4px_5px_rgba(255,255,255,0.6),0_4px_10px_var(--glow-primary)]
+                  border border-white/20
+                  text-(--color-text)
+                  transition hover:scale-105
+                "
+              >
+                {/* highlight bubble kecil */}
+                <span className="absolute top-1 left-2 h-3 w-3 bg-white/50 rounded-full blur-[2px]" />
+                {item.title}
+              </span>
+            ))}
+          </div>
+        </div>
         {/* Tech Stack */}
         <div 
         className="mb-6">
@@ -218,7 +244,17 @@ export default function Page(){
             ))}
           </div>
         </div>
-
+        {/* Platform */}
+        <div className="mb-6">
+          <h3 className="text-sm font-semibold mb-3 text-(--color-heading)">
+            Platform / Database
+          </h3>
+          <div className="grid grid-cols-4 md:grid-cols-9 gap-2 place-items-center">
+            {platforms.map((item) => (
+              <SkillBubble key={item.title} {...item} />
+            ))}
+          </div>
+        </div>
         {/* Tools */}
         <div 
         className="mb-6">
@@ -232,19 +268,20 @@ export default function Page(){
             ))}
           </div>
         </div>
-
-        {/* Platform */}
+        {/* Tools */}
         <div 
-        >
+        className="mb-6">
           <h3 className="text-sm font-semibold mb-3 text-(--color-heading)">
-            Platform / Database
+            AI Tools
           </h3>
           <div className="grid grid-cols-4 md:grid-cols-9 gap-2 place-items-center">
-            {platforms.map((item) => (
+            
+            {toolsAi.map((item) => (
               <SkillBubble key={item.title} {...item} />
             ))}
           </div>
         </div>
+
       </motion.section>
 
       {/* Featured Sections */}
@@ -390,11 +427,12 @@ export default function Page(){
             </div>
             <div className="relative w-62.5 md:h-62.5 h-40 mb-6 md:mb-0 flex items-center justify-center">
               {order
+                .slice(0, 5)
                 .map((cert, index) => (
                   <motion.div
                     key={cert.id}
                     onClick={() => bringToFront(cert.id)}
-                    className="absolute cursor-pointer"
+                    className="absolute cursor-pointer w-[220px] h-[150px]"
                     style={{
                       zIndex: order.length - index,
                     }}
@@ -406,14 +444,13 @@ export default function Page(){
                     <Image
                       src={`/Sertifikat/${cert.image}`}
                       alt={`Certificate ${cert.id}`}
-                      width={200}
-                      height={200}
-                      sizes="100vw"
+                      fill
                       className="
                         rounded-xl
                         border border-(--color-border-card)
                         shadow-xl
                         bg-white
+                        object-cover
                       "
                     />
                   </motion.div>

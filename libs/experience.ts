@@ -33,7 +33,7 @@ export type ExperiencePayload = Omit<
 export async function getExperience(): Promise<Experience[]> {
   const q = query(
     collection(db, "experiences"),
-    orderBy("createdAt", "asc")
+    orderBy("createdAt", "desc")
   );
 
   const snapshot = await getDocs(q);

@@ -3,7 +3,9 @@ export type Skill = {
     title: string;
     icon: string;
 };
-
+export type SoftSkill ={
+    title: string;
+}
 export const techStack: Skill[] = [
     { title: "HTML5", icon: "/icon/HTML5.png" },
     { title: "CSS", icon: "/icon/css.png" },
@@ -25,7 +27,17 @@ export const platforms: Skill[] = [
     { title: "MySQL", icon: "/icon/mysql.png" },
     { title: "Firebase", icon: "/icon/firebase.png" },
 ];
+export const toolsAi: Skill[] = [
+    { title: "ChtGpt AI", icon: '/icon/chatgpt.png'},
+    { title: "Gemini AI", icon : '/icon/gemini.png'}
+]
 
+export const softSkills: SoftSkill[] = [
+    { title: "Technical Leadership" },
+    { title: "Agile Collaboration"},
+    { title: "Stakeholder Management" },
+    { title: "Strategic Planning" },
+];
 
 
 export type TPlaylist = {
