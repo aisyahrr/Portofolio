@@ -427,7 +427,7 @@ export default function Page(){
             </div>
             <div className="relative w-62.5 md:h-62.5 h-40 mb-6 md:mb-0 flex items-center justify-center">
               {order
-                .slice(0, 5)
+                .slice(0, 4)
                 .map((cert, index) => (
                   <motion.div
                     key={cert.id}
