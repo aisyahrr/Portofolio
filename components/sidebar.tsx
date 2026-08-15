@@ -127,7 +127,7 @@ export default function Sidebar() {
                     <FaArrowRight className="text-sm" />
                 </Link>
                 ))}
-                <button
+                {/* <button
                 onClick={() => router.push("/playlist")}
                     className="
                     w-full flex items-center gap-2 px-4 py-2 rounded-xl
@@ -140,7 +140,7 @@ export default function Sidebar() {
                     "
                     >
                     <IoMusicalNotes className="text-sm"/> Playlist
-                </button>
+                </button> */}
             </nav>
             </div>
 
@@ -207,7 +207,7 @@ export default function Sidebar() {
                                 <FaArrowRight />
                             </Link>
                         ))}
-                        <button
+                        {/* <button
                             onClick={() => router.push("/playlist")}
                             className="
                             w-full flex items-center gap-2 px-4 py-2 rounded-xl
@@ -220,7 +220,7 @@ export default function Sidebar() {
                             "
                             >
                             <IoMusicalNotes className="text-sm"/> Playlist
-                        </button>
+                        </button> */}
                     </nav>
 
                     {/* Footer */}

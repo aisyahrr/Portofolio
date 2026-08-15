@@ -54,7 +54,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Project Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2  2xl:grid-cols-3 gap-5">
         {visibleProjects.map((item) => (
           <div
             key={item.id}

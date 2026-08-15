@@ -21,7 +21,7 @@ import { User, FolderKanban, Award } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import {HiOutlineMail} from "react-icons/hi";
 // data
-import {techStack, tools, platforms, softSkills, SoftSkill,toolsAi  } from "@/data/data"; 
+import {techStack, tools, platforms, softSkills, SoftSkill  } from "@/data/data"; 
 import { getCertificates } from "@/libs/achievements";
 import { TCertificate } from "@/libs/achievements";
 import { getProject } from "@/libs/project";
@@ -264,19 +264,6 @@ export default function Page(){
           <div className="grid grid-cols-4 md:grid-cols-9 gap-2 place-items-center">
             
             {tools.map((item) => (
-              <SkillBubble key={item.title} {...item} />
-            ))}
-          </div>
-        </div>
-        {/* Tools */}
-        <div 
-        className="mb-6">
-          <h3 className="text-sm font-semibold mb-3 text-(--color-heading)">
-            AI Tools
-          </h3>
-          <div className="grid grid-cols-4 md:grid-cols-9 gap-2 place-items-center">
-            
-            {toolsAi.map((item) => (
               <SkillBubble key={item.title} {...item} />
             ))}
           </div>

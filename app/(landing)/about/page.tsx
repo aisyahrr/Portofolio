@@ -41,16 +41,16 @@ export default function AboutPage() {
                         </div>
                 </div>
                 <p className="font-medium text-base pt-3 text-justify ">
-                    Hello! I’m Aisyah Rahmawati, an Informatics Engineering student at Universitas Pamulang with a strong passion for creating intuitive, user-centered digital experiences. My interest in technology grew from seeing how design and code can simplify everyday life, leading me to focus on Frontend Development.
+                    Hi, I’m Aisyah Rahmawati, an Informatics Engineering student at Universitas Pamulang with a passion for Frontend Development and creating intuitive, user-centered digital experiences.
                 </p>
                 <p className="font-medium text-base pt-3 text-justify ">
-                    I have hands-on experience with TypeScript, JavaScript, Laravel, Tailwind CSS, and Bootstrap, building responsive and high-performance websites that prioritize user experience. For me, web development is more than writing code — it’s about understanding user needs, designing intuitive flows, and delivering smooth, meaningful interactions.
+                    I enjoy turning ideas into responsive and engaging websites using technologies such as TypeScript, JavaScript, Laravel, Tailwind CSS, and Bootstrap. For me, web development is not just about writing code—it’s about understanding users, creating intuitive interfaces, and making every interaction feel simple and meaningful.
                 </p>
                 <p className= "font-medium text-base pt-3 text-justify ">
-                    I enjoy exploring new technologies, continuously learning, and improving my approach to building digital products. I value collaboration, communication, and teamwork, and I always strive to contribute positively to every project I’m part of.
+                    I’m always excited to learn new technologies, explore better ways to build digital products, and grow through every project I work on. I also value collaboration, communication, and continuous improvement, because I believe great products are built through both technical skills and teamwork.
                 </p>
                 <p className="font-medium text-base pt-3 text-justify">
-                    With creativity and technical expertise, I believe every website can deliver a purposeful and impactful experience. I’m always excited to take on new challenges and connect with others who share the same passion for design and technology.
+                    I’m currently looking for opportunities to learn, collaborate, and create impactful digital experiences while continuing to grow as a Frontend Developer.
                 </p>
             </div>
             {/* Education section */}
